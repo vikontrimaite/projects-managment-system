@@ -14,7 +14,7 @@ body {
     text-transform: uppercase;
 }
  
-a {
+header > a {
     text-decoration: none;
     color: black;
     margin: 2rem;
@@ -38,4 +38,13 @@ th {
 th,
 td {
     padding: 15px;
+}
+
+.links {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.index-page {
+    text-align: center;
 }

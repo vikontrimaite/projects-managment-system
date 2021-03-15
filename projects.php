@@ -1,50 +1,31 @@
+<?php
+
+include('connection.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Managment System</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
+<?php
+include('head.php');
+?>
 <body>
-    <header>
-        <div class="header">
-            <div>
-                <a href="#">projects</a>
-                <a href="employees.php">employees</a>
-            </div>
-            <div>
-                project managment
-            </div>
-        </div>
-    </header>
-    <main>
-        <table>
+    <?php
+
+include('header.php');
+
+
+echo '<table>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Projects</th>
+                <th>Employees</th>
                 <th>Actions</th>
-            </tr>
+            </tr>';
 
-<?php
-
-$servername = "localhost";
-$username = "root";
-$password = "mysql";
-$dbname = "ProjectManagment";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname); // Create connection
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
-
-$sql = "SELECT id, name, employees FROM Projects";
+$sql = 'SELECT Projects.id, Projects.name, group_concat(concat_ws(", ", Employees.employee_name)) as Employees from Projects
+inner join Employees on Projects.name=Employees.project_name 
+group by project_name;';
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -53,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
         '<tr>
             <td>' . $row["id"] . '</td>
             <td>' . $row["name"] . '</td>
-            <td>' . $row["employees"] . '</td>
+            <td>' . $row["Employees"] . '</td>
             <td>delete update</td>
         </tr>';
     }
@@ -61,10 +42,11 @@ if (mysqli_num_rows($result) > 0) {
     echo "0 results";
 }
 
+echo '</table>';
+
 ?>
-
-        </table>
-    </main>
 </body>
-
 </html>
+
+
+
