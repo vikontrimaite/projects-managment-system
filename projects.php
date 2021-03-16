@@ -28,6 +28,23 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
     die();
 }
 
+// add new project
+if(isset($_POST['add-project'])) {
+    $newProject = $_POST['add-project'];
+    $sql = "INSERT INTO Projects (name)
+    VALUES ('$newProject');";
+    if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully!";
+    } else {
+    echo "Error: " . $sql . "
+    " . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+
+    header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+    die();
+}
+
 
 echo '<table>
             <tr>
@@ -61,7 +78,20 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '</table>';
 
+
+
+
 ?>
+
+<div style="background-color: lightblue;">
+        <form action="" method="POST">
+            <p>Add a new project!</p>
+            <label for="add-project">Enter a new project's name: </label>
+            <input type="text" name="add-project">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
 </body>
 </html>
 
