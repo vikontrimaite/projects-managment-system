@@ -31,6 +31,9 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
 // add new project
 if(isset($_POST['add-project'])) {
     $newProject = $_POST['add-project'];
+    if ($newName == '') {
+        echo 'Name cannot be empty. Please enter a name!';
+    } else {
     $sql = "INSERT INTO Projects (name)
     VALUES ('$newProject');";
     if (mysqli_query($conn, $sql)) {
@@ -43,6 +46,7 @@ if(isset($_POST['add-project'])) {
 
     header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
     die();
+}
 }
 
 

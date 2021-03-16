@@ -31,18 +31,23 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
 // add new employee
 if(isset($_POST['add-empl'])) {
     $newName = $_POST['add-empl'];
-    $sql = "INSERT INTO Employees (employee_name)
-    VALUES ('$newName')";
-    if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully!";
+    if ($newName == '') {
+        echo 'Name cannot be empty. Please enter a name!';
     } else {
-    echo "Error: " . $sql . "
-    " . mysqli_error($conn);
+        $sql = "INSERT INTO Employees (employee_name)
+        VALUES ('$newName')";
+        if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully!";
+        } else {
+        echo "Error: " . $sql . "
+        " . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+    
+        header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+        die();
     }
-    mysqli_close($conn);
 
-    header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
-    die();
 }
 
 echo '<table>
