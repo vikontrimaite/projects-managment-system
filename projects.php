@@ -31,8 +31,8 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
 // add new project
 if(isset($_POST['add-project'])) {
     $newProject = $_POST['add-project'];
-    if ($newName == '') {
-        echo 'Name cannot be empty. Please enter a name!';
+    if ($newProject == '') {
+        echo 'Project name cannot be empty. Please enter a name!';
     } else {
     $sql = "INSERT INTO Projects (name)
     VALUES ('$newProject');";
