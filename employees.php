@@ -53,7 +53,7 @@ echo '<table>
                 <th>Actions</th>
             </tr>';
 
-$sql = "SELECT id, employee_name, project_name FROM Employees;";
+$sql = "SELECT id, employee_name, project_name FROM Employees order by employee_name;";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {

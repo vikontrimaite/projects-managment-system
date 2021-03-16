@@ -56,7 +56,7 @@ echo '<table>
 
 $sql = 'SELECT Projects.id, Projects.name, group_concat(concat_ws(", ", Employees.employee_name)) as Employees from Projects
 inner join Employees on Projects.name=Employees.project_name 
-group by project_name;';
+group by project_name order by Projects.name;';
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
