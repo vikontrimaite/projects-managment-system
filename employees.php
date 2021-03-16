@@ -28,18 +28,22 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
     die();
 }
 
+// add new employee
+if(isset($_POST['add-empl'])) {
+    $newName = $_POST['add-empl'];
+    $sql = "INSERT INTO Employees (employee_name)
+    VALUES ('$newName')";
+    if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully!";
+    } else {
+    echo "Error: " . $sql . "
+    " . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 
-// čia pagal seną pvz, bet reik kitaip, bet esmė gal tokia
-// if(isset($_POST['add-empl'])) {
-//     $newDir = $_GET['path']. $_POST['add-empl'];
-//     if (is_dir($_POST['add-empl'])) {
-//         echo '<p style="color: red;">Employee with a name ' . $_POST['add-empl'] . ' exists aleready</p>';
-//     } elseif (empty($_POST['add-empl'])) {
-//         echo '<p style="color: red;">Employee name cannot be empty. Please enter a new employee name!</p>';
-//     } else {
-//         mkdir($newDir);
-//     }
-// }
+    header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+    die();
+}
 
 echo '<table>
             <tr>
