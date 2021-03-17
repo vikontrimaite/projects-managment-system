@@ -63,25 +63,10 @@ if (mysqli_num_rows($result) > 0) {
     </div>';
 
 
-    // $query = mysql_query ("SELECT * FROM Employees;");
-
-    // while ($row = mysql_fetch_array ($query)) 
-    // {
-    //     $id = $row['id']; 
-    //     $employee_name = $row['employee_name'];
-    //     $project_name = $row['project_name'];
-    //     // $date = $row['date'];
-    //     // $category = $row['category'];
-    //     // $content = $row['content'];
-    // }
-
 }
 if(isset($_POST['update-empl'])) {
 
-    
 
-
-    // $id = $_POST['id'];
     $updated_employee_name = $_POST['employee_name'];
     $updated_project_name = $_POST['project_name'];
 
@@ -102,30 +87,6 @@ if(isset($_POST['update-empl'])) {
         
     }
     
-
-    
-    
-    // `// $sql = 'UPDATE FROM Employees WHERE id = ?';`
-    // $name = $_POST['name'];
-    // $project = $_POST['project'];
-
-    // $sql = 'UPDATE Employees
-    // SET
-    // `id` = <{id: }>,
-    // `name` = <{name: }>,
-    // `surname` = <{surname: }>,
-    // `salary` = <{salary: }>
-    // WHERE `id` = <{expr}>;
-    // ';
-    // // $stmt = $conn->prepare($sql);
-    // // $stmt->bind_param('i', $_GET['id']);
-    // // $res = $stmt->execute();
-
-    // $stmt->close();
-    // mysqli_close($conn);
-
-    // header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
-    // die();
 
 
 
