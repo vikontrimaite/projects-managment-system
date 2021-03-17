@@ -1,22 +1,20 @@
 # Projects managment system
 
-Launch procedure
-
+## How to start the project:
 1. Do git a clone code where you can launch php web app (webroot)
 2. Import the mysql dump file
 3. Go to local host
 4. Now the project should be working well! 
 
-
-
-
-## How to start the project:
-
 ## Features:
-- php + sql
+- php + sql + db
 - view different tables (Employees and Projects)
-- create, read, update, delete new employee
-- create, read, update, delete new project
+- create a new employee
+- delete an employee
+- update employee name and project
+- add a new project
+- delete a project
+- update an existing project's name
 
 ## Author
 [Vilija](https://github.com/vikontrimaite)
