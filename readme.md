@@ -6,16 +6,18 @@
 3. Go to local host
 4. Now the project should be working well! 
 
-## Features:
-- php + sql + db
+## Technology:
+- php + sql
 - crud principle
+
+## Features:
 - view different tables (Employees and Projects)
 - create a new employee
 - delete an employee
-- update employee name and project
+- update employee's name and project (but withouth showing the current values when updating)
 - add a new project
 - delete a project
-- update an existing project's name
+- update an existing project's name (-)
 
 ## Author
 [Vilija](https://github.com/vikontrimaite)
