@@ -8,6 +8,7 @@
 
 ## Features:
 - php + sql + db
+- crud principle
 - view different tables (Employees and Projects)
 - create a new employee
 - delete an employee
