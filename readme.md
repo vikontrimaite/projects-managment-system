@@ -14,7 +14,7 @@
 - view different tables (Employees and Projects)
 - create a new employee
 - delete an employee
-- update employee's name and project (but withouth showing the current values when updating)
+- update employee's name and project (but withouth showing the current values when updating (or showing the first values from the DB))
 - add a new project
 - delete a project
 - update an existing project's name (-)
