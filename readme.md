@@ -18,7 +18,7 @@
 - update employee's name and project (but withouth showing the current values when updating)
 - add a new project
 - delete a project
-- update an existing project's name
+- update an existing project's name (new project is visible when updating an employee and assigning them a project)
 
 ## Author
 [Vilija](https://github.com/vikontrimaite)
