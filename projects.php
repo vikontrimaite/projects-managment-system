@@ -3,12 +3,13 @@
 include('connection.php');
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
 include('head.php');
 ?>
+
 <body>
     <?php
 
@@ -28,27 +29,56 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
     die();
 }
 
+// update
+if(isset($_GET['action']) and $_GET['action'] == 'update'){
+    echo '<div style="background-color: lightgreen;">
+        <form action="" method="POST">
+            <p>Update your existing project name!</p>
+
+            <label for="project_name">Enter a new project name: </label>
+            <input type="text" name="project_name" >
+    
+            <input type="submit" name ="update-proj" value="Update!">
+        </form>
+    </div>';
+
+}
+if(isset($_POST['update-proj'])) {
+
+    $updated_project_name = $_POST['project_name'];
+        
+            $sql = "UPDATE Projects SET name = ? WHERE id = ?";
+            $stmt = $conn->prepare($sql); 
+            $stmt->bind_param('si', $updated_project_name, $_GET['id'] );
+            $res = $stmt->execute();
+        
+            $stmt->close();
+            mysqli_close($conn);
+        
+            header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+            die();
+    }
+
 // add new project
 if(isset($_POST['add-project'])) {
-    $newProject = $_POST['add-project'];
-    if ($newProject == '') {
-        echo 'Project name cannot be empty. Please enter a name!';
-    } else {
-    $sql = "INSERT INTO Projects (name)
-    VALUES ('$newProject');";
-    if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully!";
-    } else {
-    echo "Error: " . $sql . "
-    " . mysqli_error($conn);
+        $newProject = $_POST['add-project'];
+        if ($newProject == '') {
+            echo 'Project name cannot be empty. Please enter a name!';
+        } else {
+        $sql = "INSERT INTO Projects (name)
+        VALUES ('$newProject');";
+        if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully!";
+        } else {
+        echo "Error: " . $sql . "
+        " . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+
+        header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+        die();
     }
-    mysqli_close($conn);
-
-    header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
-    die();
 }
-}
-
 
 echo '<table>
             <tr>
@@ -72,7 +102,7 @@ if (mysqli_num_rows($result) > 0) {
             <td>' . $row["Employees"] . '</td>
             <td> 
             <a href="?action=delete&id='  . $row['id'] . '"><button>DELETE</button></a>
-            update</td>
+            <a href="?action=update&id='  . $row['id'] . '"><button>UPDATE</button></a>
             </td>
         </tr>';
     }
@@ -82,12 +112,9 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '</table>';
 
-
-
-
 ?>
 
-<div style="background-color: lightblue;">
+    <div style="background-color: lightblue;">
         <form action="" method="POST">
             <p>Add a new project!</p>
             <label for="add-project">Enter a new project's name: </label>
@@ -97,7 +124,5 @@ echo '</table>';
     </div>
 
 </body>
+
 </html>
-
-
-

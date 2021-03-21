@@ -13,8 +13,8 @@ body {
     padding: 2rem;
     text-transform: uppercase;
 }
- 
-.header > div > a {
+
+.header>div>a {
     text-decoration: none;
     color: black;
     margin: 2rem;
