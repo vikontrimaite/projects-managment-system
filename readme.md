@@ -11,13 +11,14 @@
 - crud principle
 
 ## Features:
-- view different tables (Employees and Projects)
+- view Employees table (employee's id, name and assigned project)
+- view Projects table (project's id, name and assigned employees) (only projects with at least one assigned person is visible)
 - create a new employee
 - delete an employee
-- update employee's name and project (but withouth showing the current values when updating (or showing the first values from the DB))
+- update employee's name and project (but withouth showing the current values when updating)
 - add a new project
 - delete a project
-- update an existing project's name (-)
+- update an existing project's name
 
 ## Author
 [Vilija](https://github.com/vikontrimaite)
