@@ -48,3 +48,7 @@ td {
     display: flex;
     justify-content: center;
 }
+
+.id-line {
+    color: blue;
+}
