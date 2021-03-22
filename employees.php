@@ -30,14 +30,18 @@ if(isset($_GET['action']) and $_GET['action'] == 'delete'){
 
 // update box
 if(isset($_GET['action']) and $_GET['action'] == 'update') {
+
     echo '<div style="background-color: grey;">
         <form action="" method="POST">
             <p>Update your employee!</p>
+            <p class="id-line">Your employee ID is: ' . $_GET['id'] . ' </p>
+            
             <label for="employee_name">Enter a new employee name: </label>
             <input type="text" name="employee_name">
+
             <label for="project_name"> Assign project for an employee: </label>
             <select id="project_name" name="project_name">';
-            
+
     $sql = "SELECT name FROM Projects;";
     $result = mysqli_query($conn, $sql);
 

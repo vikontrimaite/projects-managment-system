@@ -35,6 +35,8 @@ if(isset($_GET['action']) and $_GET['action'] == 'update'){
         <form action="" method="POST">
             <p>Update your existing project name!</p>
 
+            <p class="id-line">Your project ID is: ' . $_GET['id'] . ' </p>
+
             <label for="project_name">Enter a new project name: </label>
             <input type="text" name="project_name" >
     
