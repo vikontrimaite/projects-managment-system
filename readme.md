@@ -15,7 +15,7 @@
 - view Projects table (project's id, name and assigned employees) (only projects with at least one assigned person is visible)
 - create a new employee
 - delete an employee
-- update employee's name and project (but withouth showing the current values when updating)
+- update employee's name and project (current employee's ID is visible)
 - add a new project
 - delete a project
 - update an existing project's name (new project is visible when updating an employee and assigning them a project)
